@@ -1,6 +1,20 @@
 import { StyleSheet } from "react-native";
 import {colors } from './colors';
 
+export const AssetSideStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  content: {
+    fontSize: 18,
+  },
+});
+
 export const ContextButtonStyles = StyleSheet.create({
   contextButton: {
     flex: 1,
