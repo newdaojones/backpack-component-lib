@@ -1,18 +1,60 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 import { PluginSide as PluginSideModel } from './SideModels';
+import { SideStyles } from '../style/styles';
+import ContextButtons from '../contextButton/ContextButtons';
 
-interface PluginSideProps {
+type PluginSideProps = {
   data: PluginSideModel;
+  onDrawerChange: (drawerId: string) => void;
 }
 
-const PluginSide: React.FC<PluginSideProps> = ({ data }) => {
-  // Render the Persona component using the data prop
+const justifyContentMapping = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+};
+
+const textAlignMapping = {
+  left: 'left',
+  center: 'center',
+  right: 'right',
+};
+
+const PersonaSide: React.FC<PluginSideProps> = ({ data, onDrawerChange }) => {
+  const {
+    title,
+    pluginCount,
+    content,
+    contentAlignment,
+    padding = 24,
+    titleAlignment = 'center',
+  } = data;
+
+  const mappedContentAlignment = justifyContentMapping[contentAlignment] as 'flex-start' | 'center' | 'flex-end';
+  const mappedTitleAlignment = textAlignMapping[titleAlignment] as 'left' | 'center' | 'right';
+  
+
   return (
-    <div>
-      <h2>{data.title}</h2>
-      <p>Plugin Count: {data.pluginCount}</p>
-    </div>
+    <View
+      style={[
+        SideStyles.container,
+        { justifyContent: mappedContentAlignment, padding },
+      ]}
+    >
+      <Text
+        style={[
+          SideStyles.title,
+          { textAlign: mappedTitleAlignment },
+        ]}
+      >
+        {title}
+      </Text>
+      <Text style={SideStyles.content}>{content}</Text>
+      <Text>Plugin Count: {pluginCount}</Text>
+    </View>
   );
 };
 
-export default PluginSide;
+export default PersonaSide;
+

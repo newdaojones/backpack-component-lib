@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import {colors } from './colors';
 
-export const AssetSideStyles = StyleSheet.create({
+export const SideStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
@@ -12,6 +12,15 @@ export const AssetSideStyles = StyleSheet.create({
   },
   content: {
     fontSize: 18,
+  },
+});
+
+export const DrawerStyles = StyleSheet.create({
+  listContainer: {
+    paddingTop: 14,
+    paddingBottom: 18,
+    paddingLeft: 12,
+    paddingRight: 12,
   },
 });
 

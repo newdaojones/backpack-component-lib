@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { AssetSide as AssetSideModel } from './SideModels';
-import { AssetSideStyles } from '../style/styles';
+import { SideStyles } from '../style/styles';
 import ContextButtons from '../contextButton/ContextButtons';
 
 type AssetSideProps = {
@@ -38,19 +38,19 @@ const AssetSide: React.FC<AssetSideProps> = ({ data, onDrawerChange }) => {
   return (
     <View
       style={[
-        AssetSideStyles.container,
+        SideStyles.container,
         { justifyContent: mappedContentAlignment, padding },
       ]}
     >
       <Text
         style={[
-          AssetSideStyles.title,
+          SideStyles.title,
           { textAlign: mappedTitleAlignment },
         ]}
       >
         {title}
       </Text>
-      <Text style={AssetSideStyles.content}>{content}</Text>
+      <Text style={SideStyles.content}>{content}</Text>
       <Text>Asset Count: {assetCount}</Text>
     </View>
   );

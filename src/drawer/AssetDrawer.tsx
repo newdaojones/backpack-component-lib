@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { PersonaDrawer as PersonaDrawerModel, ListItem } from './DrawerModels';
+import { AssetDrawer as AssetDrawerModel, ListItem } from './DrawerModels';
 import { DrawerStyles } from '../style/styles';
 
-type PersonaDrawerProps = {
-  data: PersonaDrawerModel;
+type AssetDrawerProps = {
+  data: AssetDrawerModel;
   onDrawerChange: (drawerId: string) => void;
 }
 
-const PersonaDrawer: React.FC<PersonaDrawerProps> = ({ data, onDrawerChange }) => {
+const AssetDrawer: React.FC<AssetDrawerProps> = ({ data, onDrawerChange }) => {
   const {
     title,
     list,
@@ -31,4 +31,4 @@ const PersonaDrawer: React.FC<PersonaDrawerProps> = ({ data, onDrawerChange }) =
   );
 };
 
-export default PersonaDrawer;
+export default AssetDrawer;
