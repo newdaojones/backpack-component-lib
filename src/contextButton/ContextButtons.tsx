@@ -3,13 +3,18 @@ import { View } from 'react-native';
 import ContextButton, { ContextButtonProps } from './ContextButton';
 import { CardStyles, GridStyles } from '../style/styles';
 
+
 enum ButtonContext {
   DefaultView,
   Side,
   Drawer,
 }
 
-const ContextButtons: React.FC = () => {
+type ContextButtonsProps = {
+  contextButtons: ContextButtonProps[];
+};
+
+const ContextButtons: React.FC<ContextButtonsProps> = ({ contextButtons }) => {
     const [context, setContext] = useState(ButtonContext.DefaultView);
   
     // Define your button functions based on the context
