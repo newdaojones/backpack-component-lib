@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Text, ViewStyle } from 'react-native';
 import { ContextButtonStyles } from '../style/styles';
 import HapticFeedback from 'react-native-haptic-feedback';
+import { colors } from '../style/colors';
 
 
 export type ContextButtonProps = {
   label: string;
   onPress: () => void;
+  backgroundColor?: string;
 }
 
-const ContextButton: React.FC<ContextButtonProps> = ({ label, onPress }) => {
-  const [backgroundColor, setBackgroundColor] = useState(ContextButtonStyles.contextButton.backgroundColor);
+const ContextButton: React.FC<ContextButtonProps> = ({ label, onPress, backgroundColor = ContextButtonStyles.contextButton.backgroundColor }) => {
+  const [buttonBackgroundColor, setButtonBackgroundColor] = useState(backgroundColor);
 
   const options = {
     enableVibrateFallback: true,
@@ -19,17 +21,17 @@ const ContextButton: React.FC<ContextButtonProps> = ({ label, onPress }) => {
 
   const handlePress = () => {
     HapticFeedback.trigger('impactLight', options);
-    setBackgroundColor('red'); // Set the color you want to flash
+    setButtonBackgroundColor(colors.caution); // Set the color you want to flash
     onPress();
 
     setTimeout(() => {
-      setBackgroundColor(ContextButtonStyles.contextButton.backgroundColor);
+      setButtonBackgroundColor(backgroundColor);
     }, 200); // Reset the color after a short delay
   };
 
   const buttonStyle: ViewStyle = {
     ...ContextButtonStyles.contextButton,
-    backgroundColor,
+    backgroundColor: buttonBackgroundColor,
   };
 
   return (

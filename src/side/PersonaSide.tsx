@@ -1,11 +1,13 @@
+// PersonaSide.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
-import { PersonaSide as PersonaSideModel } from './SideModels';
+import { PersonaSide as PersonaSideModel, isSideType, CommonSideData } from './SideModels';
 import { SideStyles } from '../style/styles';
 import ContextButtons from '../contextButton/ContextButtons';
+import { ContentSideModel } from '../card/CardRoutes';
 
 type PersonaSideProps = {
-  data: PersonaSideModel;
+  data: CommonSideData;
   onDrawerChange: (drawerId: string) => void;
 }
 
@@ -22,11 +24,15 @@ const textAlignMapping = {
 };
 
 const PersonaSide: React.FC<PersonaSideProps> = ({ data, onDrawerChange }) => {
+  if (!isSideType<PersonaSideModel>(data, 'persona')) {
+    return null;
+  }
+
   const {
     title,
     personaCount,
     content,
-    contentAlignment,
+    contentAlignment = 'center',
     padding = 24,
     titleAlignment = 'center',
   } = data;
@@ -51,7 +57,7 @@ const PersonaSide: React.FC<PersonaSideProps> = ({ data, onDrawerChange }) => {
         {title}
       </Text>
       <Text style={SideStyles.content}>{content}</Text>
-      <Text>Persona Count: {personaCount}</Text>
+      {data.sideType === 'persona' && <Text>Persona Count: {data.personaCount}</Text>}
     </View>
   );
 };

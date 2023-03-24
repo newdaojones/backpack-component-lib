@@ -1,11 +1,13 @@
+// AssetSide.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
-import { AssetSide as AssetSideModel } from './SideModels';
+import { AssetSide as AssetSideModel, isSideType, CommonSideData } from './SideModels';
 import { SideStyles } from '../style/styles';
 import ContextButtons from '../contextButton/ContextButtons';
+import { ContentSideModel } from '../card/CardRoutes';
 
 type AssetSideProps = {
-  data: AssetSideModel;
+  data: CommonSideData;
   onDrawerChange: (drawerId: string) => void;
 }
 
@@ -22,11 +24,15 @@ const textAlignMapping = {
 };
 
 const AssetSide: React.FC<AssetSideProps> = ({ data, onDrawerChange }) => {
+  if (!isSideType<AssetSideModel>(data, 'asset')) {
+    return null;
+  }
+
   const {
     title,
     assetCount,
     content,
-    contentAlignment,
+    contentAlignment = "center",
     padding = 24,
     titleAlignment = 'center',
   } = data;
@@ -51,7 +57,7 @@ const AssetSide: React.FC<AssetSideProps> = ({ data, onDrawerChange }) => {
         {title}
       </Text>
       <Text style={SideStyles.content}>{content}</Text>
-      <Text>Asset Count: {assetCount}</Text>
+      {data.sideType === 'asset' && <Text>Asset Count: {data.assetCount}</Text>}
     </View>
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { PersonaDrawer as PersonaDrawerModel, ListItem } from './DrawerModels';
+import { PersonaDrawer as PersonaDrawerModel, ListItem, CommonDrawerData } from './DrawerModels';
 import { DrawerStyles } from '../style/styles';
 
-type PersonaDrawerProps = {
-  data: PersonaDrawerModel;
+export type PersonaDrawerProps = {
+  data: CommonDrawerData;
   onDrawerChange: (drawerId: string) => void;
 }
 

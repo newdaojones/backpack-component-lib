@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { PluginDrawer as PluginDrawerModel, ListItem } from './DrawerModels';
+import { PluginDrawer as PluginDrawerModel, ListItem, CommonDrawerData } from './DrawerModels';
 import { DrawerStyles } from '../style/styles';
 
-type PluginDrawerProps = {
-  data: PluginDrawerModel;
+export type PluginDrawerProps = {
+  data: CommonDrawerData;
   onDrawerChange: (drawerId: string) => void;
 }
 

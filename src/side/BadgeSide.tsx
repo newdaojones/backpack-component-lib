@@ -1,11 +1,13 @@
+// BadgeSide.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
-import { BadgeSide as BadgeSideModel } from './SideModels';
+import { BadgeSide as BadgeSideModel, isSideType, CommonSideData } from './SideModels';
 import { SideStyles } from '../style/styles';
 import ContextButtons from '../contextButton/ContextButtons';
+import { ContentSideModel } from '../card/CardRoutes';
 
 type BadgeSideProps = {
-  data: BadgeSideModel;
+  data: CommonSideData;
   onDrawerChange: (drawerId: string) => void;
 }
 
@@ -22,11 +24,15 @@ const textAlignMapping = {
 };
 
 const BadgeSide: React.FC<BadgeSideProps> = ({ data, onDrawerChange }) => {
+  if (!isSideType<BadgeSideModel>(data, 'badge')) {
+    return null;
+  }
+
   const {
     title,
     badgeCount,
     content,
-    contentAlignment,
+    contentAlignment = 'center',
     padding = 24,
     titleAlignment = 'center',
   } = data;
@@ -51,7 +57,7 @@ const BadgeSide: React.FC<BadgeSideProps> = ({ data, onDrawerChange }) => {
         {title}
       </Text>
       <Text style={SideStyles.content}>{content}</Text>
-      <Text>Badge Count: {badgeCount}</Text>
+      {data.sideType === 'badge' && <Text>Badge Count: {data.badgeCount}</Text>}
     </View>
   );
 };

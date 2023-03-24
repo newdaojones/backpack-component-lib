@@ -1,3 +1,4 @@
+// CardRoutes.ts
 import AssetSide from '../side/AssetSide';
 import BadgeSide from '../side/BadgeSide';
 import PersonaSide from '../side/PersonaSide';
@@ -15,15 +16,25 @@ import {
   PluginSide as PluginSideModel,
 } from "../side/SideModels"; // Import the correct data models
 
+import {
+  AssetDrawer as AssetDrawerModel,
+  BadgeDrawer as BadgeDrawerModel,
+  PersonaDrawer as PersonaDrawerModel,
+  PluginDrawer as PluginDrawerModel,
+} from "../drawer/DrawerModels"; // Import the correct data models
+
 import { ContextButtonProps } from '../contextButton/ContextButton';
 
 export type SideComponent = typeof AssetSide | typeof BadgeSide | typeof PersonaSide | typeof PluginSide;
 export type DrawerComponent = typeof AssetDrawer | typeof BadgeDrawer | typeof PersonaDrawer | typeof PluginDrawer;
 export type ContentSideModel = AssetSideModel | BadgeSideModel | PersonaSideModel | PluginSideModel;
+export type ContentDrawerModel = AssetDrawerModel | BadgeDrawerModel | PersonaDrawerModel | PluginDrawerModel;
+
 
 type DrawerRoute = {
   key: string;
   component: DrawerComponent;
+  data: ContentDrawerModel;
 }
 
 type SideRoute = {
@@ -42,10 +53,19 @@ const CardRoutes: SideRoute[] = [
       {
         key: 'assetDrawer',
         component: AssetDrawer,
+        data: {
+          drawerType: 'asset',
+          title: 'Asset Drawer',
+          assetCount: 10,
+          list: [
+            { id: 1, name: 'Asset 1' },
+            // ... other list items ...
+          ],
+        },
       },
     ],
     data: {
-      id: '1',
+      sideType: 'asset',
       title: 'Asset Side',
       assetCount: 5,
       content: 'Asset content',
@@ -65,12 +85,23 @@ const CardRoutes: SideRoute[] = [
       {
         key: 'badgeDrawer',
         component: BadgeDrawer,
+        data: {
+          drawerType: 'badge',
+          title: 'Badge Drawer',
+          badgeCount: 10,
+          list: [
+            { id: 1, name: 'Badge 1' },
+            // ... other list items ...
+          ],
+        },
       },
     ],
     data: {
-      id: '2',
+      sideType: 'badge',
       title: 'Badge Side',
       badgeCount: 3,
+      content: 'Badge content', // Add this property
+      contentAlignment: 'center', // Add this property
     },
     contextButtons: [
       { label: 'E', onPress: () => console.log('E') },
@@ -86,12 +117,23 @@ const CardRoutes: SideRoute[] = [
       {
         key: 'personaDrawer',
         component: PersonaDrawer,
+        data: {
+          drawerType: 'persona',
+          title: 'Persona Drawer',
+          personaCount: 10,
+          list: [
+            { id: 1, name: 'Persona 1' },
+            // ... other list items ...
+          ],
+        },
       },
     ],
     data: {
-      id: '3',
+      sideType: 'persona',
       title: 'Persona Side',
       personaCount: 4,
+      content: 'Persona content', // Add this property
+      contentAlignment: 'center', // Add this property
     },
     contextButtons: [
       { label: 'I', onPress: () => console.log('I') },
@@ -107,12 +149,23 @@ const CardRoutes: SideRoute[] = [
       {
         key: 'pluginDrawer',
         component: PluginDrawer,
+        data: {
+          drawerType: 'plugin',
+          title: 'Plugin Drawer',
+          pluginCount: 10,
+          list: [
+            { id: 1, name: 'Plugin 1' },
+            // ... other list items ...
+          ],
+        },
       },
     ],
     data: {
-      id: '4',
+      sideType: 'plugin',
       title: 'Plugin Side',
       pluginCount: 6,
+      content: 'Plugin content', // Add this property
+      contentAlignment: 'center', // Add this property
     },
     contextButtons: [
       { label: 'M', onPress: () => console.log('M') },

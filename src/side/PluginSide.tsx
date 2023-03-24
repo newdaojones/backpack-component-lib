@@ -1,11 +1,13 @@
+// PluginSide.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
-import { PluginSide as PluginSideModel } from './SideModels';
+import { PluginSide as PluginSideModel, isSideType, CommonSideData } from './SideModels';
 import { SideStyles } from '../style/styles';
 import ContextButtons from '../contextButton/ContextButtons';
+import { ContentSideModel } from '../card/CardRoutes';
 
 type PluginSideProps = {
-  data: PluginSideModel;
+  data: CommonSideData;
   onDrawerChange: (drawerId: string) => void;
 }
 
@@ -21,12 +23,16 @@ const textAlignMapping = {
   right: 'right',
 };
 
-const PersonaSide: React.FC<PluginSideProps> = ({ data, onDrawerChange }) => {
+const PluginSide: React.FC<PluginSideProps> = ({ data, onDrawerChange }) => {
+  if (!isSideType<PluginSideModel>(data, 'plugin')) {
+    return null;
+  }
+
   const {
     title,
     pluginCount,
     content,
-    contentAlignment,
+    contentAlignment = 'center',
     padding = 24,
     titleAlignment = 'center',
   } = data;
@@ -51,10 +57,10 @@ const PersonaSide: React.FC<PluginSideProps> = ({ data, onDrawerChange }) => {
         {title}
       </Text>
       <Text style={SideStyles.content}>{content}</Text>
-      <Text>Plugin Count: {pluginCount}</Text>
+      {data.sideType === 'plugin' && <Text>Plugin Count: {data.pluginCount}</Text>}
     </View>
   );
 };
 
-export default PersonaSide;
+export default PluginSide;
 

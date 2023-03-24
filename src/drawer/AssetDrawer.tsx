@@ -1,10 +1,11 @@
+// AssetDrawer.tsx
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { AssetDrawer as AssetDrawerModel, ListItem } from './DrawerModels';
+import { AssetDrawer as AssetDrawerModel, CommonDrawerData, ListItem } from './DrawerModels';
 import { DrawerStyles } from '../style/styles';
 
-type AssetDrawerProps = {
-  data: AssetDrawerModel;
+export type AssetDrawerProps = {
+  data: CommonDrawerData;
   onDrawerChange: (drawerId: string) => void;
 }
 

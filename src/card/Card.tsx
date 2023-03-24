@@ -6,6 +6,9 @@ import { CardStyles } from "../style/styles";
 import CardRoutes from './CardRoutes';
 import ContextButtons from '../contextButton/ContextButtons'; // Import ContextButtons
 
+import { AssetDrawer, BadgeDrawer, isDrawerType, PersonaDrawer, PluginDrawer } from "../drawer/DrawerModels";
+
+
 const Card = () => {
   const [activeSide, setActiveSide] = useState(CardRoutes[0].key);
   const [activeDrawer, setActiveDrawer] = useState('');
@@ -29,23 +32,66 @@ const Card = () => {
       <TouchableOpacity onPress={handleCardSideChange}>
         <View style={CardStyles.card}>
         {
-          CardRoutes.map(route => (
-            activeSide === route.key && (
-              <route.component 
-                key={route.key}
-                onDrawerChange={handleDrawerChange}
-                data={route.data}
-              />
-            )
-          ))
+          CardRoutes.map(route => {
+            if (activeSide === route.key) {
+              const Component = route.component;
+              return (
+                <Component
+                  key={route.key}
+                  onDrawerChange={handleDrawerChange}
+                  data={route.data}
+                />
+              );
+            }
+            return null;
+          })
         }
         </View>
       </TouchableOpacity>
-      {
-        CardRoutes.flatMap(route => route.drawers).map(drawer => (
-          activeDrawer === drawer.key && <drawer.component key={drawer.key} />
-        ))
+      // Card.tsx
+{
+  CardRoutes.flatMap(route => route.drawers).map(drawer => {
+    if (activeDrawer === drawer.key) {
+      const DrawerComponent = drawer.component;
+
+      if (isDrawerType<AssetDrawer>(drawer.data, "asset")) {
+        return (
+          <DrawerComponent
+            key={drawer.key}
+            data={drawer.data}
+            onDrawerChange={handleDrawerChange}
+          />
+        );
+      } else if (isDrawerType<BadgeDrawer>(drawer.data, "badge")) {
+        return (
+          <DrawerComponent
+            key={drawer.key}
+            data={drawer.data}
+            onDrawerChange={handleDrawerChange}
+          />
+        );
+      } else if (isDrawerType<PersonaDrawer>(drawer.data, "persona")) {
+        return (
+          <DrawerComponent
+            key={drawer.key}
+            data={drawer.data}
+            onDrawerChange={handleDrawerChange}
+          />
+        );
+      } else if (isDrawerType<PluginDrawer>(drawer.data, "plugin")) {
+        return (
+          <DrawerComponent
+            key={drawer.key}
+            data={drawer.data}
+            onDrawerChange={handleDrawerChange}
+          />
+        );
       }
+    }
+    return null;
+  })
+}
+
       {/* Pass the context buttons from the active side */}
       <ContextButtons contextButtons={activeSideRoute?.contextButtons || []} />
     </View>

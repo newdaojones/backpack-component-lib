@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { BadgeDrawer as BadgeDrawerModel, ListItem } from './DrawerModels';
+import { BadgeDrawer as BadgeDrawerModel, CommonDrawerData, ListItem } from './DrawerModels';
 import { DrawerStyles } from '../style/styles';
 
-type BadgeDrawerProps = {
-  data: BadgeDrawerModel;
+export type BadgeDrawerProps = {
+  data: CommonDrawerData;
   onDrawerChange: (drawerId: string) => void;
 }
 
