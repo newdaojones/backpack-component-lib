@@ -1,29 +1,29 @@
 // Card.tsx
-import React, { useState, ReactNode } from 'react';
+import React from 'react';
 import { View, ViewStyle } from 'react-native';
+import { useSelector } from 'react-redux';
 import Side from '../Side/Side';
 import Drawer from '../Drawer/Drawer';
 import ContextButtons from '../ContextButtons/ContextButtons';
-import { SideType } from '../Side/SideFactory';
-import { DrawerType } from '../Drawer/DrawerFactory';
-import { ContextButtonType } from '../ContextButtons/ContextButtonsFactory';
+import { RootState } from '../../store/configureStore'; // Import the RootState from the rootReducer
 
 
-interface CardProps { // <-- Add CardProps interface
-  children: ReactNode;
+interface CardProps {
+  children?: React.ReactNode;
   style?: ViewStyle;
 }
 
 const Card: React.FC<CardProps> = ({ children, style }) => {
-  const [currentSideType, setCurrentSideType] = useState<SideType>(SideType.PERSONA);
-  const [currentDrawerType, setCurrentDrawerType] = useState<DrawerType>(DrawerType.PERSONA);
-  const [currentContextButtonType, setCurrentContextButtonType] = useState<ContextButtonType>(ContextButtonType.PERSONA);
+  const sideType = useSelector((state: RootState) => state.card.currentSideType);
+  const drawerType = useSelector((state: RootState) => state.card.currentDrawerType);
+  const contextButtonType = useSelector((state: RootState) => state.card.currentContextButtonType);
 
   return (
-    <View>
-      <Side sideType={currentSideType} />
-      <Drawer drawerType={currentDrawerType} />
-      <ContextButtons contextButtonType={currentContextButtonType} />
+    <View style={style}>
+      <Side sideType={sideType} />
+      <Drawer drawerType={drawerType} />
+      <ContextButtons contextButtonType={contextButtonType} />
+      {children}
     </View>
   );
 };

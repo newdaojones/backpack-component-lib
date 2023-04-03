@@ -1,10 +1,27 @@
+// App.tsx
 import React from 'react';
-import Card from './src/card/Card'; // Update the import path to the actual location of your Card component
+import { SafeAreaView, StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import Card from './src/components/Card/Card';
+import store from './src/store/configureStore';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <Card />
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <Card />
+      </SafeAreaView>
+    </Provider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+});
 
 export default App;

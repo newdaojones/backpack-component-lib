@@ -15,3 +15,5 @@ export const viewReducer = (state = initialState, action: any) => {
       return state;
   }
 };
+
+export default viewReducer;

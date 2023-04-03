@@ -1,7 +1,7 @@
 // PersonaContextButtons.tsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../../store/rootReducer';
+import { RootState } from '../../../store/configureStore';
 import { changeView, resetView } from '../../../store/actions/actions';
 import Connect from '../../../plugins/Connect';
 import OnRamp from '../../../plugins/OnRamp';

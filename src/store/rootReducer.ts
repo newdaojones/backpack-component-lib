@@ -1,7 +1,7 @@
 // rootReducer.ts
 import { combineReducers } from 'redux';
 import cardReducer from './cardReducer'; // Import the cardReducer from the reducer.ts file.
-import { viewReducer } from './viewReducer'; // Import the viewReducer from the viewReducer.ts file.
+import viewReducer from './viewReducer'; // Import the viewReducer from the viewReducer.ts file.
 
 const rootReducer = combineReducers({
   card: cardReducer,
@@ -9,4 +9,4 @@ const rootReducer = combineReducers({
   // ... (add other reducers as needed)
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+export default rootReducer;

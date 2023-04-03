@@ -12,3 +12,4 @@ const Drawer: React.FC<DrawerProps> = ({ drawerType }) => {
 };
 
 export default Drawer;
+

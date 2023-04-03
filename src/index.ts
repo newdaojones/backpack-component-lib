@@ -1,9 +1,6 @@
-export { default as Card } from "./card/Card";
-export { default as PersonaSide } from "./side/PersonaSide";
-export { default as AssetSide } from "./side/AssetSide";
-export { default as BadgeSide } from "./side/BadgeSide";
-export { default as PluginSide } from "./side/PluginSide";
-export { default as PersonaDrawer } from "./drawer/PersonaDrawer";
-export { default as AssetDrawer } from "./drawer/AssetDrawer";
-export { default as BadgeDrawer } from "./drawer/BadgeDrawer";
-export { default as PluginDrawer } from "./drawer/PluginDrawer";
+// src/index.ts
+import { AppRegistry } from 'react-native';
+import App from '../App';
+import { name as appName } from '../app.json';
+
+AppRegistry.registerComponent(appName, () => App);

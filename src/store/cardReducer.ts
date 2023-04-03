@@ -1,4 +1,4 @@
-// reducer.ts
+// src/store/cardReducer.ts
 import { SET_SIDE_TYPE, SET_DRAWER_TYPE } from './actions/actionTypes';
 import { SideType } from '../components/Side/SideFactory';
 import { DrawerType } from '../components/Drawer/DrawerFactory';

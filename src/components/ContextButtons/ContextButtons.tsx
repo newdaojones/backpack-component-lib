@@ -1,4 +1,4 @@
-// ContextButtons.tsx
+// src/components/ContextButtons/ContextButtons.tsx
 import React from 'react';
 import { ContextButtonsFactory, ContextButtonType } from './ContextButtonsFactory';
 import { AssetContextButtonsProps } from './Asset/AssetContextButtons';
@@ -14,12 +14,11 @@ type ContextButtonPropsType =
 
 interface ContextButtonsProps {
   contextButtonType: ContextButtonType;
-  contextButtonProps: ContextButtonPropsType;
 }
 
-const ContextButtons: React.FC<ContextButtonsProps> = ({ contextButtonType, contextButtonProps }) => {
+const ContextButtons: React.FC<ContextButtonsProps> = ({ contextButtonType }) => {
   const ContextButtonsComponent = ContextButtonsFactory.createContextButtons(contextButtonType);
-  return <ContextButtonsComponent {...contextButtonProps} />;
+  return <ContextButtonsComponent />;
 };
 
 export default ContextButtons;

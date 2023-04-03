@@ -1,4 +1,4 @@
-// ContextButtonsFactory.ts
+// src/components/ContextButtons/ContextButtonsFactory.ts
 import React from 'react';
 import PersonaContextButtons from './Persona/PersonaContextButtons';
 import AssetContextButtons from './Asset/AssetContextButtons';

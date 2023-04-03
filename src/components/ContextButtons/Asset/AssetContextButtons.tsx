@@ -1,7 +1,7 @@
 // AssetContextButtons.tsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../../store/rootReducer';
+import { RootState } from '../../../store/configureStore';
 import { changeView, resetView } from '../../../store/actions/actions';
 import SendReceive from '../../../plugins/SendReceive';
 import TxHistory from '../../../plugins/TxHistory';
