@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const OnRampView: React.FC = () => {
   return (
-    <div>
-      {/* Your On-Ramp view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

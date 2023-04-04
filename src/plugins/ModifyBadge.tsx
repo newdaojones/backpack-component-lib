@@ -1,12 +1,13 @@
 // AddAssetView.tsx
 import React from 'react';
+import { View } from 'react-native';
 
 const ModifyBadge: React.FC = () => {
   // Render the Send / Receive view
   return (
-    <div>
-      {/* Your Send / Receive view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

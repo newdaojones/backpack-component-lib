@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const ConnectView: React.FC = () => {
   return (
-    <div>
-      {/* Your Connect view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

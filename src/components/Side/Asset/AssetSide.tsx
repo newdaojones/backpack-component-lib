@@ -1,8 +1,6 @@
-// AssetSide.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
-import Card from '../../Card/Card';
-import { SideStyles } from '../../../style/styles'
+import { SideStyles } from '../../../style/styles';
 import { assetContentData } from '../../../data/sideContentData';
 
 const AssetSide: React.FC = () => {
@@ -10,12 +8,12 @@ const AssetSide: React.FC = () => {
   const { title, description } = assetContentData;
 
   return (
-    <Card style={container}>
+    <View style={container}>
       <View>
-        <Text style={SideStyles.title}>{title}</Text> 
-        <Text style={SideStyles.content}>{description}</Text>
+        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{title}</Text>
+        <Text style={{ fontSize: 16 }}>{description}</Text>
       </View>
-    </Card>
+    </View>
   );
 };
 

@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const PaycastView: React.FC = () => {
   return (
-    <div>
-      {/* Your Paycast view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

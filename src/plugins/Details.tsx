@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const DetailsView: React.FC = () => {
   return (
-    <div>
-      {/* Your Details view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

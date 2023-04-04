@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const SignaturesView: React.FC = () => {
   return (
-    <div>
-      {/* Your Signatures view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

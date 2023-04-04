@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { SideStyles } from '../../../style/styles';
 import { badgeContentData } from '../../../data/sideContentData';
 
@@ -10,8 +10,8 @@ const BadgeSide: React.FC = () => {
   return (
     <View style={container}>
       <View>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{title}</Text>
+        <Text style={{ fontSize: 16 }}>{description}</Text>
       </View>
     </View>
   );

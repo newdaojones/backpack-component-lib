@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const RunPluginView: React.FC = () => {
   return (
-    <div>
-      {/* Your Run Plugin view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 

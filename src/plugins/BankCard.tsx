@@ -1,10 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 
 const BankCardView: React.FC = () => {
   return (
-    <div>
-      {/* Your Bank Card view content goes here */}
-    </div>
+    <View>
+      { /* Content here */}
+    </View>
   );
 };
 
