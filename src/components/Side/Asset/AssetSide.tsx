@@ -1,3 +1,4 @@
+// src/components/Side/AssetSide.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
 import { SideStyles } from '../../../style/styles';

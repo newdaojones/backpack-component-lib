@@ -1,13 +1,12 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    // Add any custom compiler options here
+    "types": ["jest", "@testing-library/jest-native"],
   },
   "exclude": [
     "node_modules",
     "babel.config.js",
     "metro.config.js",
     "jest.config.js"
-    // Add any additional files or directories you want to exclude from the TypeScript compilation
   ]
 }

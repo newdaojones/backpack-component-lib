@@ -1,3 +1,4 @@
+// src/components/Drawer/Plugin/PluginDrawer.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
 import { DrawerStyles } from '../../../style/styles';

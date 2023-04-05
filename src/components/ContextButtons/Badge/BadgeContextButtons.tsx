@@ -1,4 +1,4 @@
-// BadgeContextButtons.tsx
+// src/components/ContextButtons/Badge/BadgeContextButtons.tsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../store/configureStore';
